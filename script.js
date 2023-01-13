@@ -1,4 +1,7 @@
 
+let acertos=0;
+let jogadas=0;
+
 let cartas = prompt("Com quantas cartas quer jogar?");
 while (cartas > 14 || cartas<4 || cartas%2==1){
     alert("Digite um valor válido, número par maior que 3 e menor que 15")
@@ -45,11 +48,11 @@ function vira(valor){
     gif = valor.querySelector('.gif').src;
     twocards.push(gif);
     paramudar.push(valor);
-   
+    jogadas+=1;
    
     contvira+=1;
         if (contvira==2){
-            setTimeout(comparar, 1000);   
+            setTimeout(comparar, 500);   
             
         }
     }
@@ -64,7 +67,9 @@ function vira(valor){
         paramudar[1].classList.add('nclicado');
         paramudar.pop();
         paramudar.pop();
-    
+        acertos+=1;
+        setTimeout(terminarjogo, 1000);
+        
 }   else{
         contvira=0;
         twocards.pop();
@@ -82,6 +87,11 @@ function vira(valor){
         paramudar.pop();
         paramudar.pop();
   }
+}
+function terminarjogo(){
+    if (cartas/2 ==acertos){
+        alert(`Você ganhou em ${jogadas} jogadas!`);
+    }
 }
 
 
