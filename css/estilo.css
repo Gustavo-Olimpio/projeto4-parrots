@@ -75,3 +75,6 @@ h1{
 .front-face {
     transform: rotateY(-180deg);
   }
+.nclicado {
+  pointer-events: none;
+}

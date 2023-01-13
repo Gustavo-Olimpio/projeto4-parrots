@@ -35,6 +35,7 @@ while(cont < cartas){
 const twocards = [];
 const paramudar = [];
 let contvira=0;
+
 function vira(valor){
     const ff = valor.querySelector('.ff');
     const bf = valor.querySelector('.bf');
@@ -45,18 +46,26 @@ function vira(valor){
     twocards.push(gif);
     paramudar.push(valor);
    
+   
     contvira+=1;
-    if (contvira==2){
-        if (twocards[0] == twocards[1]){
+        if (contvira==2){
+            setTimeout(comparar, 1000);   
+            
+        }
+    }
+  function comparar(){
+    if (twocards[0] == twocards[1]){
         contvira=0;
         twocards.pop();
         twocards.pop();
         let a = "Igual"
-        console.log(a)
+        console.log(a);
+        paramudar[0].classList.add('nclicado');
+        paramudar[1].classList.add('nclicado');
         paramudar.pop();
         paramudar.pop();
-        
-    }else{
+    
+}   else{
         contvira=0;
         twocards.pop();
         twocards.pop();
@@ -72,12 +81,7 @@ function vira(valor){
         bf2.classList.remove("back-face");
         paramudar.pop();
         paramudar.pop();
-        console.log(paramudar);
-        
-    }
-    }
-    function ContarSegundos(){
-    }
-    }
+  }
+}
 
 
