@@ -64,14 +64,14 @@ h1{
     transform-style: preserve-3d;
   }
 
-  .back-face {
+  .bf{
     transform: rotateY(180deg);
   }
 
-  .card:hover .back-face {
+ .back-face {
     transform: rotateY(0deg);
   }
 
-  .card:hover .front-face {
+.front-face {
     transform: rotateY(-180deg);
   }

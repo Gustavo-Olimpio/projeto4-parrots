@@ -1,3 +1,4 @@
+
 let cartas = prompt("Com quantas cartas quer jogar?");
 while (cartas > 14 || cartas<4 || cartas%2==1){
     alert("Digite um valor válido, número par maior que 3 e menor que 15")
@@ -20,14 +21,63 @@ const carta = document.querySelector('.totalcartas');
 embaralhado.sort(comparador);
 while(cont < cartas){
     carta.innerHTML = `
-<div class="card">
-  <div class="front-face face">
+<div onclick="vira(this)" class="card">
+  <div class="ff face">
   <img class="passaro" src="img/back.png">
   </div>
-  <div class="back-face face">
-  <img class="passaro" src="img/${embaralhado[cont]}.gif">
+  <div class="bf face">
+  <img class="passaro gif" src="img/${embaralhado[cont]}.gif">
   </div>
 </div>`+carta.innerHTML;
     cont+=1;
     
 }
+const twocards = [];
+const paramudar = [];
+let contvira=0;
+function vira(valor){
+    const ff = valor.querySelector('.ff');
+    const bf = valor.querySelector('.bf');
+    
+    ff.classList.add("front-face");
+    bf.classList.add("back-face");
+    gif = valor.querySelector('.gif').src;
+    twocards.push(gif);
+    paramudar.push(valor);
+   
+    contvira+=1;
+    if (contvira==2){
+        if (twocards[0] == twocards[1]){
+        contvira=0;
+        twocards.pop();
+        twocards.pop();
+        let a = "Igual"
+        console.log(a)
+        paramudar.pop();
+        paramudar.pop();
+        
+    }else{
+        contvira=0;
+        twocards.pop();
+        twocards.pop();
+        let a = "Diferente"
+        console.log(a)
+        const ff1 = paramudar[0].querySelector('.ff');
+        const bf1 = paramudar[0].querySelector('.bf');
+        const ff2 = paramudar[1].querySelector('.ff');
+        const bf2 = paramudar[1].querySelector('.bf');
+        ff1.classList.remove("front-face");
+        bf1.classList.remove("back-face");
+        ff2.classList.remove("front-face");
+        bf2.classList.remove("back-face");
+        paramudar.pop();
+        paramudar.pop();
+        console.log(paramudar);
+        
+    }
+    }
+    function ContarSegundos(){
+    }
+    }
+
+
