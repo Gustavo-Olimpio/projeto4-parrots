@@ -40,20 +40,22 @@ const paramudar = [];
 let contvira=0;
 
 function vira(valor){
-    const ff = valor.querySelector('.ff');
-    const bf = valor.querySelector('.bf');
+    if (contvira<2){
+        const ff = valor.querySelector('.ff');
+        const bf = valor.querySelector('.bf');
+        ff.classList.add("front-face");
+        bf.classList.add("back-face");
+        gif = valor.querySelector('.gif').src;
+        twocards.push(gif);
+        paramudar.push(valor);
+        paramudar[0].classList.add('nclicado');
+        jogadas+=1;
     
-    ff.classList.add("front-face");
-    bf.classList.add("back-face");
-    gif = valor.querySelector('.gif').src;
-    twocards.push(gif);
-    paramudar.push(valor);
-    jogadas+=1;
-   
-    contvira+=1;
-        if (contvira==2){
-            setTimeout(comparar, 500);   
-            
+        contvira+=1;
+            if (contvira==2){
+                setTimeout(comparar, 1000);   
+                
+            }
         }
     }
   function comparar(){
@@ -68,7 +70,7 @@ function vira(valor){
         paramudar.pop();
         paramudar.pop();
         acertos+=1;
-        setTimeout(terminarjogo, 1000);
+        setTimeout(terminarjogo, 500);
         
 }   else{
         contvira=0;
@@ -76,6 +78,7 @@ function vira(valor){
         twocards.pop();
         let a = "Diferente"
         console.log(a)
+        paramudar[0].classList.remove('nclicado');
         const ff1 = paramudar[0].querySelector('.ff');
         const bf1 = paramudar[0].querySelector('.bf');
         const ff2 = paramudar[1].querySelector('.ff');
