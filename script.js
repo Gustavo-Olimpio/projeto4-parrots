@@ -24,12 +24,12 @@ const carta = document.querySelector('.totalcartas');
 embaralhado.sort(comparador);
 while(cont < cartas){
     carta.innerHTML = `
-<div onclick="vira(this)" class="card">
+<div data-test="card" onclick="vira(this)" class="card">
   <div class="ff face">
-  <img class="passaro" src="img/back.png">
+  <img data-test="face-down-image" class="passaro" src="img/back.png">
   </div>
   <div class="bf face">
-  <img class="passaro gif" src="img/${embaralhado[cont]}.gif">
+  <img data-test="face-up-image" class="passaro gif" src="img/${embaralhado[cont]}.gif">
   </div>
 </div>`+carta.innerHTML;
     cont+=1;
